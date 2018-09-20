@@ -1,0 +1,5 @@
+Para compilhar digite
+	make
+
+Para compilar digite
+	./progPilha
