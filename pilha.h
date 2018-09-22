@@ -27,6 +27,7 @@ void coloqueEm(Pilha*[],int,int,int);
 void coloqueNo(Pilha*[],int,int,int);
 void empilheEm(Pilha*[],int,int,int);
 void empilheNo(Pilha*[],int,int,int);
+void inverterPilha(Pilha*[],int);
 // SE HOUVER OUTRAS FUNCOES QUE SERAO IMPLEMENTADAS PELA PILHA, DECLARE AS ASSINATURAS DELAS AQUI
 
 #endif /*__PILHA_H_*/

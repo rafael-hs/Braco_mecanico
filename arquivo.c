@@ -12,43 +12,19 @@ int main(void)
 		printf("digite a quantidade de blocos:\n");
 		scanf("%d", &opw);
 		Pilha *p[opw];
+		system("clear");
 		for(i=0;i<opw;i++)
 		{
 			p[i] = novaPilha();
 			p[i] = push(p[i], i);
 		}
-		for(j=0;j<opw;j++)
-		{
-			printf("%d: ",j);
-			imprimePilha(p[j]);
-		}
-		//system("clear");
+		
+
 		char word[8],word2[3];
 		int n1,n2;
 		int resultadoDeSaida=0; 
 		do
 		{
-		push(p[3],4);
-		pop(p[4]);
-		push(p[3],2);
-		pop(p[2]);
-		push(p[1],0);
-		pop(p[0]);
-		
-		for(j=0;j<opw;j++)
-		{
-			printf("%d: ",j);
-			imprimePilha(p[j]);
-		}
-		
-		coloqueNo(p,4,1,opw);	
-		
-		for(j=0;j<opw;j++)
-		{
-			printf("%d: ",j);
-			imprimePilha(p[j]);
-		}
-		
 		
 		scanf("%s", word);
 		if(strcmp(word,"fim")==0)
@@ -57,14 +33,40 @@ int main(void)
 		break;
 		}
 		scanf("%d %s %d",&n1,word2,&n2);
-		printf("%s\n",word);
-		printf("%s\n",word2);
-		printf("%d\n",n1);
-		printf("%d\n",n2);
 		
+		
+		if(strcmp(word,"coloque")==0)
+		{
+				if(strcmp(word2,"em")==0)
+				{
+					coloqueEm(p,n1,n2,opw);
+					inverterPilha(p,opw);	
+				}else
+				{
+					coloqueNo(p,n1,n2,opw);
+					inverterPilha(p,opw);
+				}
+		}
+		else if (strcmp(word,"empilhe")==0)
+		{
+				if(strcmp(word2,"em")==0)
+				{
+					empilheEm(p,n1,n2,opw);
+					inverterPilha(p,opw);
+				}
+				else
+				{
+					empilheNo(p,n1,n2,opw);
+					inverterPilha(p,opw);
+				}
+		}
 		
 		}
-		while(resultadoDeSaida!=1);{printf("saindo do programa...\n");}
+		while(resultadoDeSaida!=1);
+		system("clear");
+		{
+		inverterPilha(p,opw);
+		}
 		//mostrar a lista de pilhas
 		//for(j=0;j<opw;j++)
 		//{

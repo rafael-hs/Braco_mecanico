@@ -99,9 +99,10 @@ int acharPilha(Pilha* vet[], int nPilhas, int elem)
 
 void coloqueEm(Pilha *p[],int n1, int n2, int nPilhas)
 {
+	
 	if(n1 == n2)
 	{
-		return 0;
+		
 	}
 	
 	else
@@ -134,6 +135,11 @@ void coloqueEm(Pilha *p[],int n1, int n2, int nPilhas)
 
 void coloqueNo(Pilha *p[], int n1, int n2, int nPilhas)
 {
+		if(n1 == n2)
+		{
+		
+		}
+		else{
 		int indice = acharPilha(p,nPilhas,n1);
 		int indice2 = acharPilha(p,nPilhas,n2);
 	
@@ -149,14 +155,90 @@ void coloqueNo(Pilha *p[], int n1, int n2, int nPilhas)
 		int val = topo(p[indice])->dado;
 		p[indice2] = push(p[indice2],val);
 		pop(p[indice]);
-		
+		}
 }
 
+void empilheNo(Pilha *p[], int n1, int n2,  int nPilhas)
+{		
+		if(n1 == n2)
+		{
+		
+		}
+		else
+		{
+		int indice = acharPilha(p,nPilhas,n1);
+		int indice2 = acharPilha(p,nPilhas,n2);
+		
+		Pilha* p2 = novaPilha();
+		
+		No *aux = p[indice]->inicio;
+		int val;
+			while(p[indice]->inicio != NULL)
+			{
+			
+			val = topo(p[indice])->dado;
+			push(p2,val);
+			pop(p[indice]);
+			aux = aux->prox;
+			}
+			aux = p2->inicio;
+			while(p2->inicio != NULL)
+			{
+			val = topo(p2)->dado;
+			push(p[indice2],val);
+			pop(p2);
+			}
+		 }
+}
 
+void empilheEm(Pilha *p[], int n1, int n2,  int nPilhas)
+{		
+		if(n1 == n2)
+		{
+		
+		}
+		else
+		{
+		int indice = acharPilha(p,nPilhas,n1);
+		int indice2 = acharPilha(p,nPilhas,n2);
+		
+		No *aux = p[indice2]->inicio;
+		
+		while(aux->dado != n2)
+		{
+			int val = topo(p[indice2])->dado;
+			push(p[val],val);
+			pop(p[indice2]);
+			aux = aux->prox;
+		}
+		empilheNo(p,n1,n2,nPilhas);
+		}
+}
 
-
-
-
+void inverterPilha(Pilha *p[], int nPilhas)
+{			
+	int i = 0;
+		while(i<=nPilhas)
+		{
+			Pilha* p2 = novaPilha();
+			No *aux = p[i]->inicio;
+			
+			
+			while(aux != NULL)
+			{
+			
+			push(p2,aux->dado);
+			aux = aux->prox;
+			}
+			printf("%d: ",i);
+			imprimePilha(p2);
+			
+			i++;
+			if(i==nPilhas)
+				break;
+		}
+			
+}
 
 
 
