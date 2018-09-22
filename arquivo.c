@@ -11,6 +11,7 @@ int main(void)
 	
 		printf("digite a quantidade de blocos:\n");
 		scanf("%d", &opw);
+		
 		Pilha *p[opw];
 		system("clear");
 		for(i=0;i<opw;i++)
@@ -40,11 +41,9 @@ int main(void)
 				if(strcmp(word2,"em")==0)
 				{
 					coloqueEm(p,n1,n2,opw);
-					inverterPilha(p,opw);	
 				}else
 				{
 					coloqueNo(p,n1,n2,opw);
-					inverterPilha(p,opw);
 				}
 		}
 		else if (strcmp(word,"empilhe")==0)
@@ -52,12 +51,10 @@ int main(void)
 				if(strcmp(word2,"em")==0)
 				{
 					empilheEm(p,n1,n2,opw);
-					inverterPilha(p,opw);
 				}
 				else
 				{
 					empilheNo(p,n1,n2,opw);
-					inverterPilha(p,opw);
 				}
 		}
 		
